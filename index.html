@@ -155,7 +155,7 @@
 							<!-- Here are three paragraphs where you can fill out information about yourself -->
 							<p>
 								<!-- Items contained in <b> tags are bolded! -->
-								This database contains information about the FRB and host galaxy properties of all the <b>5</b> currently identified FRB hosts.
+								This database contains information about the FRB and host galaxy properties of the <b>5</b> currently known FRBs with associated hosts.
 <head> 
     <style> 
         table, th, td { 
@@ -238,13 +238,15 @@
 			<i>Image from <a href="https://ui.adsabs.harvard.edu/abs/2017Natur.541...58C/abstract">Chatterjee et al., 2017, Nature, 541, 58</a></i> 
 		</p>
 		<p> 
-			<b>Summary</b> <br> 
-			- Detected by XX. <br> 
-			- Coordinates: XX. <br> 
-			- Redshift: XX <br> 
-			- Observed DM: XX. <br> 
+			<u><b>Summary</b></u> <br> 
+			- Detected by: Arecibo <br> 
+			- Coordinates (RA, Dec): 05:31:58.68 +33:08:52.76 (J2000) <br> 
+			- Redshift: 0.1927 <br> 
+			- Observed DM: 557 &#177; 2 <br> 
 			- Repeating: Yes <br>
-			- References: 2017Natur.541...58C, 2017ApJ...834L...7T (add href)
+			- References: <a href="https://ui.adsabs.harvard.edu/abs/2016Natur.531..202S/abstract">2016Natur.531..202S</a>; 
+			<a href="https://ui.adsabs.harvard.edu/abs/2017Natur.541...58C/abstract">2017Natur.541...58C</a>; 
+			<a href="https://ui.adsabs.harvard.edu/abs/2017ApJ...834L...7T/abstract">2017ApJ...834L...7T</a>
 		</p>
 		<p>
 			<b>Host galaxy properties</b> <br>
@@ -280,13 +282,38 @@
 	</tr>
  	<tr> 
             <td>Star formation rate</td> 
-		<td>2 &#177; 1</td>
+		<td>0.23 &#177; 0.01</td>
 		<td>M<font size="1">&#8857;</font>/yr</td>
 	</tr>
  	<tr> 
             <td>Metallicity</td> 
-		<td>8.5 &#177; 0.2</td>
-		<td>12+log(O/H) (O3N2)</td>
+		<td> -- </td>
+		<td>12+log(O/H)</td>
+	</tr>
+ 	<tr> 
+		<td><i>E(B-V)</i></td> 
+		<td> -- </td>
+		<td>mag</td>
+	</tr>
+ 	<tr> 
+		<td><i>Absolute r-band mag.</i></td> 
+		<td>-17.0 &#177; 0.2</td>
+		<td>mag</td>
+	</tr>
+ 	<tr> 
+		<td><i>u - r</i> color (rest-frame)</td> 
+		<td> -- </td>
+		<td>mag</td>
+	</tr>
+ 	<tr> 
+		<td>Half-light radius</td> 
+		<td>1.4 &#177; 0.2</td>
+		<td>kpc</td>
+	</tr>
+ 	<tr> 
+		<td>FRB offset from galaxy center</td> 
+		<td>0.63 &#177; 0.23</td>
+		<td>kpc</td>
 	</tr>
     </table> 
 </body> 	
@@ -295,13 +322,94 @@
 		
 		<p>
 			<b>FRB properties<b>
+<head> 
+    <style> 
+        table, th, td { 
+            border: 1px solid black; 
+            border-collapse: collapse; 
+        } 
+          
+        th, td { 
+            padding: 20px; 
+        } 
+          
+       th, td { 
+            text-align: left; 
+        } 
+    </style> 
+</head> 
+  
+<body> 
+  
+    <table style="width:100%"> 
+        <tr> 
+            <th>Quantity</th> 
+            <th>Measured value</th> 
+	    <th>Units</th> 
+	</tr>
+    </table> 
+</body> 
 		</p>
 		
 		<p>
 			<b>Emission line fluxes<b>
+<head> 
+    <style> 
+        table, th, td { 
+            border: 1px solid black; 
+            border-collapse: collapse; 
+        } 
+          
+        th, td { 
+            padding: 20px; 
+        } 
+          
+       th, td { 
+            text-align: left; 
+        } 
+    </style> 
+</head> 
+  
+<body> 
+  
+    <table style="width:100%"> 
+        <tr> 
+            <th>Emission line</th> 
+            <th>Measured value</th> 
+	</tr>
+    </table> 
+</body> 
+Measurements are reported in units of 10<sup>-16</sup> erg s<sup>-1</sup> cm<sup>-2</sup>.
 		</p>
 		<p>
 			<b>Photometry<b>
+<head> 
+    <style> 
+        table, th, td { 
+            border: 1px solid black; 
+            border-collapse: collapse; 
+        } 
+          
+        th, td { 
+            padding: 20px; 
+        } 
+          
+       th, td { 
+            text-align: left; 
+        } 
+    </style> 
+</head> 
+  
+<body> 
+  
+    <table style="width:100%"> 
+        <tr> 
+            <th>Instrument</th> 
+            <th>Filter</th> 
+	    <th>Measured magnitude</th> 
+	</tr>
+    </table> 
+</body> 
 		</p>
 	</article>
 						
