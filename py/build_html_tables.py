@@ -8,6 +8,29 @@ from frb import frb
 from frb.galaxies import frbgalaxy
 
 
+def get_values(tbl, tbl_units, idx, properties, formats, scale_dict=None,
+               units_dict=None):
+    values, errors, units = [], [], []
+    for key in properties.keys():
+        value = tbl.iloc[idx][key]
+        scale = 1. if scale_dict is None else scale_dict[key]
+        if key in formats.keys():
+            values.append(format(value / scale, formats[key]))
+        else:
+            raise IOError("You must add a format for {}!".format(key))
+        # Error?
+        if hasattr(tbl.iloc[idx], key + '_err'):
+            error = tbl.iloc[idx][key + '_err']
+            errors.append(format(error / scale, formats[key]))
+        else:
+            errors.append('--')
+        # Unit
+        unit = tbl_units[key] if units_dict is None else units_dict[key]
+        units.append(unit)
+
+    # Return
+    return values, errors, units
+
 def build_frbs(out_path='./html_tables'):
     # Load
     frbs_tbl, tbl_units = frb.build_table_of_frbs()
@@ -25,22 +48,8 @@ def build_frbs(out_path='./html_tables'):
         frb_tbl = pandas.DataFrame(dict(Quantity=frb_prop))
 
         # The rest
-        values, errors, units = [], [], []
-        for key in frb_properties.keys():
-            value = frbs_tbl.iloc[frb_idx][key]
-            if key in frb_formats.keys():
-                values.append(format(value, frb_formats[key]))
-            else:
-                raise IOError("You must add a format for {}!".format(key))
-            # Error?
-            if hasattr(frbs_tbl.iloc[frb_idx], key + '_err'):
-                error = frbs_tbl.iloc[frb_idx][key + '_err']
-                errors.append(format(error, frb_formats[key]))
-            else:
-                errors.append('--')
-            # Unit
-            units.append(tbl_units[key])
-
+        values, errors, units = get_values(frbs_tbl, tbl_units, frb_idx,
+                                           frb_properties, frb_formats)
         # Add em in
         frb_tbl['Measured Value'] = values
         frb_tbl['Measured Error'] = errors
