@@ -78,6 +78,7 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         flg = 0
         flg += 2**0   # FRB tables
+        flg += 2**1   # Host tables
         #flg_fig += 2**1   # FRB 190102
         #flg_fig += 2**16   # Check impacts
     else:
