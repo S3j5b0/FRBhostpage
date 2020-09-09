@@ -37,11 +37,11 @@ def build_frbs(out_path='./html_tables'):
     frbs_tbl, tbl_units = frb.build_table_of_frbs()
 
     # Properties for the Table
-    frb_properties = dict(DM='DM_FRB', DMISM='DM_ISM', RM='RM_FRB')
+    frb_properties = dict(DM='DM_FRB', DMISM='DM_ISM', RM='RM_FRB', fluence='Fluence')
     frb_prop = [item for key, item in frb_properties.items()]
 
     # Formatting
-    frb_formats = dict(DM='.1f', DMISM='.1f', RM='.1f')
+    frb_formats = dict(DM='.1f', DMISM='.1f', RM='.1f', fluence='.1f')
 
     # Loop me
     for frb_idx in range(len(frbs_tbl)):
@@ -146,8 +146,8 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 1:
         flg = 0
-        #flg += 2**0   # FRB tables
-        flg += 2**1   # Host tables
+        flg += 2**0   # FRB tables
+        #flg += 2**1   # Host tables
         #flg_fig += 2**1   # FRB 190102
         #flg_fig += 2**16   # Check impacts
     else:
