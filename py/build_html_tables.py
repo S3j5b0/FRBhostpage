@@ -10,9 +10,10 @@ from frb.galaxies import frbgalaxy
 from IPython import embed
 
 def get_values(tbl, tbl_units, idx, properties, formats, scale_dict=None,
-               units_dict=None):
+               units_dict=None, suppress_dict=None):
     values, errors, units = [], [], []
     for key in properties.keys():
+        # Proceeed
         value = tbl.iloc[idx][key]
         scale = 1. if scale_dict is None else scale_dict[key]
         if key in formats.keys():
@@ -39,6 +40,16 @@ def build_frbs(out_path='./html_tables'):
     # Properties for the Table
     frb_properties = dict(DM='DM_FRB', DMISM='DM_ISM', RM='RM_FRB', fluence='Fluence')
     frb_prop = [item for key, item in frb_properties.items()]
+
+    # Suppress?
+    frb_suppress = dict(FRB200430=['DM'])
+    for key in frb_suppress:
+        idx = np.where(frbs_tbl['FRB'] == key)[0][0]
+        for item in frb_suppress[key]:
+            frbs_tbl.at[idx, item] =  np.nan
+            # Error
+            if item+'_err' in frbs_tbl.keys():
+                frbs_tbl.at[idx, item+'_err'] = np.nan
 
     # Formatting
     frb_formats = dict(DM='.1f', DMISM='.1f', RM='.1f', fluence='.1f')
