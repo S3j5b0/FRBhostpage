@@ -34,6 +34,8 @@ def get_values(tbl, tbl_units, idx, properties, formats, scale_dict=None,
     return values, errors, units
 
 def build_frbs(out_path='./html_tables'):
+    """
+    """
     # Load
     frbs_tbl, tbl_units = frb.build_table_of_frbs()
 
