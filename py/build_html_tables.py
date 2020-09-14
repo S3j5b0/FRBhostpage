@@ -78,14 +78,14 @@ def build_hosts(out_path='./html_tables'):
 
     host_formats = dict(Mstar='0.1f', M_r='0.2f',
                         Halpha='0.2f', Hbeta='0.2f')
-    host_scale = dict(Mstar=1e8, M_r=1.,
+    host_scale = dict(Mstar=1e9, M_r=1.,
                       Halpha=1e-16, Hbeta=1e-16)
     host_units = dict(Mstar='mag', M_r='mag',
                       Halpha='erg/s/cm^2', Hbeta='erg/s/cm^2')
 
     # Derived
     host_derived_properties = dict(Mstar='Stellar Mass', M_r='Absolute r-band mag.')
-    host_emission_properties = dict(Halpha='Ha', Hbeta='Hb')
+    host_emission_properties = dict(Halpha='H&alpha;', Hbeta='H&beta;')
 
     # Photometry -- *way* easier with JSON files
     suffix = 'photom'
@@ -159,8 +159,8 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 1:
         flg = 0
-        flg += 2**0   # FRB tables
-        #flg += 2**1   # Host tables
+        #flg += 2**0   # FRB tables
+        flg += 2**1   # Host tables
         #flg_fig += 2**1   # FRB 190102
         #flg_fig += 2**16   # Check impacts
     else:
